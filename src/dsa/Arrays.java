@@ -1,102 +1,101 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dsa;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Arrays {
+public class ArraysExample {
 
     public static void main(String[] args) {
-        // Q: Store a roll number:
-        int a = 19;
+        // Example: Store a roll number
+        int rollNumber = 19;
 
-        // Q: Store a person's name
+        // Example: Store a person's name
         String name = "Doğuhan";
 
-        // @: Store 5 roll numbers
-        int rnol = 1;
-        int rnol2 = 2;
-        int rnol3 = 3;
-        int rnol4 = 4;
-        int rnol5 = 5;
+        // Example: Store multiple roll numbers using an array
+        int[] rollNumbers = {1, 2, 3, 4, 5};
 
-        // Syntax
-        // datatype[] variable_name = new datatype[size];
-        int[] rolls = new int[4];
-        // or
-        int[] rolls2 = {32, 13, 54, 78};
+        // Array declaration and initialization
+        int[] numbers = new int[4];
+        int[] predefinedNumbers = {32, 13, 54, 78};
 
-        int[] ex; // declaration of array. ex is getting defined in the stack. // COMPILE TIME
-        ex = new int[5]; // initilisation: actually here object is being created in memory. // RUN TIME
+        // Declaration of an array (only stack memory allocation, no heap allocation yet)
+        int[] dynamicArray;
+        dynamicArray = new int[5]; // Now memory is allocated in heap
 
-        // in C language, objects in heap memory is contionus (one by one) but in Java, there is no proof
-        // that objects are continous in heap memory. It depends on JVM.
-        System.out.println(rolls2[0]); // 32
-        System.out.println(rolls2[1]); // 13
+        // Printing array elements
+        System.out.println(predefinedNumbers[0]); // Output: 32
+        System.out.println(predefinedNumbers[1]); // Output: 13
 
-        String[] arr = new String[4];
-        System.out.println(arr[0]); // null! When array is empty, there is only null.
+        // String array initialization (default values are null)
+        String[] stringArray = new String[4];
+        System.out.println(stringArray[0]); // Output: null
 
-        String[] arr1 = new String[4];
-
-        for (int i = 0; i < rolls2.length; i++) {
-            System.out.println(rolls2[i]);
+        // Looping through an array using a traditional for-loop
+        for (int i = 0; i < predefinedNumbers.length; i++) {
+            System.out.println(predefinedNumbers[i]);
         }
 
-        for (int num : rolls2) {
+        // Looping through an array using enhanced for-loop
+        for (int num : predefinedNumbers) {
             System.out.println(num);
-        };
+        }
 
-        // array of objects
-        String[] str = new String[2];
-        str[0] = "Doğuhan";
-        str[1] = "Doğuhan2";
+        // Array of objects (String array)
+        String[] names = new String[2];
+        names[0] = "Doğuhan";
+        names[1] = "Doğuhan2";
 
-        // Modify
-        str[1] = "Doğu";
+        // Modifying an array element
+        names[1] = "Doğu";
 
-        for (String param : str) {
+        for (String param : names) {
             System.out.println(param);
         }
 
-        // 2D ARRAYS
-        // [[1,2,3],[4,5,6],[7,8,9]]
-        int[][] arr2dimension = {
+        // 2D ARRAYS (Matrix representation)
+        int[][] matrix = {
             {1, 2, 3},
             {4, 5, 6},
             {7, 8, 9}
         };
 
-        // input
-        System.out.println(arr2dimension[0][1]);
+        // Accessing elements in a 2D array
+        System.out.println(matrix[0][1]); // Output: 2
 
+        // Working with ArrayList
         ArrayList<Integer> list = new ArrayList<>();
         list.add(12);
         list.add(23);
         list.add(50);
         list.add(45);
 
-        Integer max_value = 0;
-
+        // Finding the maximum value in an ArrayList
+        int max_value = Integer.MIN_VALUE;
         for (Integer param : list) {
-            if (max_value < param) {
+            if (param > max_value) {
                 max_value = param;
-            };
-        }
-        System.out.println(max_value);
-
-        
-
-        for (Integer param : list) {
-            if (param > param) {
-                param = param;
             }
-            System.out.println(param);
+        }
+        System.out.println("Max value: " + max_value);
+
+        // Additional Example: Taking array input from the user
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+        int[] userArray = new int[size];
+
+        System.out.println("Enter " + size + " elements:");
+        for (int i = 0; i < size; i++) {
+            userArray[i] = scanner.nextInt();
         }
 
-        
+        System.out.println("Array elements you entered:");
+        for (int num : userArray) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        scanner.close();
     }
 }
